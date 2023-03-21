@@ -1,5 +1,7 @@
 package startOfData;
 import java.lang.Math;
+import java.io.*;
+import java.util.*;
 
 
 public class testClass {
@@ -125,5 +127,38 @@ public class testClass {
         }
 
     }
+    String [][] csvFinder(){
+        String csvFolder = "/home/thurokiir/Documents/Java projects/JoshData";
+        File directory = new File(csvFolder);
 
+        String [][] storage;
+        storage = new String[150][50];
+
+        File[] files = directory.listFiles((dir,name) -> name.endsWith(".csv"));
+
+        int row = 0;
+        int col = 0;
+
+        for (int i = 0; i < files.length; i++){
+            try (BufferedReader reader = new BufferedReader(new FileReader(files[i]))){
+
+                String line;
+
+                while ((line = reader.readLine()) != null){
+                    String[] values = line.split(",");
+                    for(int j = 0; j < values.length;j++){
+                        storage[row][col] = values[j];
+                        col++;
+                    }
+                    row++;
+                    col = 0;
+                }
+                reader.close();
+            } catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+
+        return storage;
+    }
 }

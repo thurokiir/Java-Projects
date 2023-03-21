@@ -1,7 +1,25 @@
 package startOfData;
-include sortingAlgos;
-  
+import java.io.*;
 
-public static void main(string[] args){
+public class startOfData{  
 
+    public static void main(String[] args){
+
+
+        testClass testOne = new testClass();
+
+
+        String[][] baseballResults = testOne.csvFinder();
+
+        for(int i = 0; i < baseballResults.length; i++){
+            System.out.println("Round " + i%50);
+            System.out.println();
+
+            for(int j = 0; j < 15; j++){
+                System.out.print(baseballResults[i][j]+ "  ,");
+            }
+            System.out.println();
+        }
+
+    }
 }
