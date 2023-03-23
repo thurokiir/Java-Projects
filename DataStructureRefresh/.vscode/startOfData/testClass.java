@@ -127,21 +127,30 @@ public class testClass {
         }
 
     }
+
+    /*
+     * Takes all csv files in a folder then combines them in sequence into a 2d array.
+     */
     String [][] csvFinder(){
+
+        //I'd like this to be a directory prompt
         String csvFolder = "/home/thurokiir/Documents/Java projects/JoshData";
         File directory = new File(csvFolder);
 
+        //Size of 2d array should be a prompt, not static
         String [][] storage;
         storage = new String[150][50];
 
         File[] files = directory.listFiles((dir,name) -> name.endsWith(".csv"));
 
+        //Takes all files, compares their names, reorders them in order.
         Arrays.sort(files, new Comparator<File>(){
             public int compare(File f1, File f2){
                 return f1.getName().compareTo(f2.getName());
             }
         });
 
+        //prints out file names
         for(File file: files){
             System.out.println(file.getName());
         }
