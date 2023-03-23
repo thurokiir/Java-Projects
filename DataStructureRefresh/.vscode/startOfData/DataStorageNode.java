@@ -1,33 +1,36 @@
 package startOfData;
 
-public class DataStorageNode {
-    DataStorageNode front;
-    DataStorageNode back;
-    String name;
-    int score;
+public class DataStorageNode<T> {
+    private DataStorageNode<T> front;
+    private DataStorageNode<T> back;
+    private T name;
+    private int score;
     
-    DataStorageNode(){
+    public DataStorageNode(T name, int score){
         
 
-        DataStorageNode front = null;
-        DataStorageNode back = null;
+        DataStorageNode<T> front = null;
+        DataStorageNode<T> back = null;
         //We'll test if we have to instantiate these later
-        String name;
-        int score;
+        this.name = name;
+        this.score = score;
     }
 
+    //Sets
     void setFront(){
 
     }
     void setBack(){
 
     }
-    void setName(String newName){
-        name = newName;
+    void setName(T newName){
+        this.name = newName;
     }
     void setScore(int scoreOfDraft){
-        score = scoreOfDraft + score;
+        this.score = scoreOfDraft + score;
     }
+
+    //Gets
     DataStorageNode getFront(){
         return front;
 
@@ -36,7 +39,7 @@ public class DataStorageNode {
         return back;
     }
     String getName(){
-        return name;
+        return (String)name;
     }
     int getScore(){
         return score;
