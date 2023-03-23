@@ -129,7 +129,7 @@ public class testClass {
     }
 
     /*
-     * Takes all csv files in a folder then combines them in sequence into a 2d array.
+     * Takes all csv files in a folder then combines/returns them in sequence into a 2d array.
      */
     String [][] csvFinder(){
 
@@ -180,4 +180,15 @@ public class testClass {
 
         return storage;
     }
+
+    /*
+     * Snake over an Array
+     */
+    public void playerFinder(String[][] storage){
+
+        
+
+
+    }
+
 }
