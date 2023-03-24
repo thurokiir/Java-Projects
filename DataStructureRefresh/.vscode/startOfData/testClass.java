@@ -188,6 +188,13 @@ public class testClass {
 
         DataStorageNode test= new DataStorageNode();
 
+        DataStorageNode [] returnThis;
+
+
+        //god forgive me for my nested loops
+        for(int i = 0; i < storage.length; i++){
+
+        }
 
     }
 
