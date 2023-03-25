@@ -193,6 +193,9 @@ public class testClass {
 
         //god forgive me for my nested loops
         for(int i = 0; i < storage.length; i++){
+            for(int j = 0; j < storage.length; j++){
+                
+            }
 
         }
 
