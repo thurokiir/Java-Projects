@@ -5,6 +5,7 @@ public class DataStorageNode<T> {
     private DataStorageNode<T> back;
     private T name;
     private int score;
+    private int selection;
     
     public DataStorageNode(){
         DataStorageNode<T> front = null;
@@ -33,6 +34,7 @@ public class DataStorageNode<T> {
     }
     void setScore(int scoreOfDraft){
         this.score = scoreOfDraft + score;
+        selection++;
     }
 
     //Gets
@@ -46,9 +48,11 @@ public class DataStorageNode<T> {
     String getName(){
         return (String)name;
     }
-    int getScore(){
-        return score;
+    int getScoreI(){
+        return score/3;
     }
-    
+    double getScoreD(){
+        return score%3;
+    }
 
 }

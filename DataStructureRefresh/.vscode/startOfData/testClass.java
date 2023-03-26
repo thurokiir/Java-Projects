@@ -184,7 +184,7 @@ public class testClass {
     /*
      * Snake over an Array
      */
-    public void playerFinder(String[][] storage){
+    public DataStorageNode[] playerFinder(String[][] storage){
 
         DataStorageNode test= new DataStorageNode();
 
@@ -199,6 +199,7 @@ public class testClass {
                 for(int j = 0; j < storage[0].length; j++){
                     returnThis[l+j] = new DataStorageNode<>(storage[i][j],0);
                     returnThis[l+j].setName(storage[i][j]);
+                    returnThis[l+j].setScore((l+j)%750);
                     //System.out.print(l+j +" " +returnThis[l+j].getName()+ " ");
                 }
                 l += storage[0].length;
@@ -211,16 +212,10 @@ public class testClass {
                 }
                 l = (i+1)*storage[0].length;
             }
-            /* 
-            for(int j = 0; j < storage[0].length; j++){
-                returnThis[l+j] = new DataStorageNode<>(storage[i][j],0);
-                returnThis[l+j].setName(storage[i][j]);
-                System.out.print(l+j +" " +returnThis[l+j].getName()+ " ");
-            }
-            */
-            //l += storage[0].length; //Convert this back to index access in line with for loop
         }
-        System.out.print("");
+        return returnThis;
     }
+
+    
 
 }
