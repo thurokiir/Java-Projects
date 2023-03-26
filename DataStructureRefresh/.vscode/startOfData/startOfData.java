@@ -25,9 +25,9 @@ public class startOfData{
 
         */
 
-        testOne.playerFinder(baseballResults);
+        DataStorageNode<String> [] baseBallArray = testOne.playerFinder(baseballResults);
         
-    
+
 
     }
 }
