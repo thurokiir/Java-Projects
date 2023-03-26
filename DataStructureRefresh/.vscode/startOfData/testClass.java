@@ -139,7 +139,7 @@ public class testClass {
 
         //Size of 2d array should be a prompt, not static
         String [][] storage;
-        storage = new String[150][50];
+        storage = new String[150][15];
 
         File[] files = directory.listFiles((dir,name) -> name.endsWith(".csv"));
 
@@ -188,17 +188,39 @@ public class testClass {
 
         DataStorageNode test= new DataStorageNode();
 
-        DataStorageNode [] returnThis;
+        DataStorageNode<String> [] returnThis = new DataStorageNode[storage.length*storage[0].length];
 
+        System.out.println(returnThis.length);
 
+        int l = 0;
         //god forgive me for my nested loops
         for(int i = 0; i < storage.length; i++){
-            for(int j = 0; j < storage.length; j++){
-                
+            if(i % 2 == 0){
+                for(int j = 0; j < storage[0].length; j++){
+                    returnThis[l+j] = new DataStorageNode<>(storage[i][j],0);
+                    returnThis[l+j].setName(storage[i][j]);
+                    //System.out.print(l+j +" " +returnThis[l+j].getName()+ " ");
+                }
+                l += storage[0].length;
+            } else {
+                for(int j = storage[0].length-1; j >= 0; j--){
+                    returnThis[l+j] = new DataStorageNode<>(storage[i][j],0);
+                    returnThis[l+j].setName(storage[i][j]);
+                    returnThis[l+j].setScore((l+j)%750);
+                    //System.out.print(l+j +" " +returnThis[l+j].getName()+ " ");
+                }
+                l = (i+1)*storage[0].length;
             }
-
+            /* 
+            for(int j = 0; j < storage[0].length; j++){
+                returnThis[l+j] = new DataStorageNode<>(storage[i][j],0);
+                returnThis[l+j].setName(storage[i][j]);
+                System.out.print(l+j +" " +returnThis[l+j].getName()+ " ");
+            }
+            */
+            //l += storage[0].length; //Convert this back to index access in line with for loop
         }
-
+        System.out.print("");
     }
 
 }

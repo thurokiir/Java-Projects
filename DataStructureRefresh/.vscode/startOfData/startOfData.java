@@ -11,6 +11,7 @@ public class startOfData{
 
         String[][] baseballResults = testOne.csvFinder();
 
+        /* 
         for(int i = 0; i < baseballResults.length; i++){
 
             System.out.println();
@@ -22,7 +23,10 @@ public class startOfData{
             System.out.println();
         }
 
-    
+        */
+
+        testOne.playerFinder(baseballResults);
+        
     
 
     }
