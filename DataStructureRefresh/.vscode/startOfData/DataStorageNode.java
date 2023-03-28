@@ -1,33 +1,33 @@
 package startOfData;
 
-public class DataStorageNode<T,K> {
-    private DataStorageNode<T,K> front;
-    private DataStorageNode<T,K> back;
-    private T name;
+public class DataStorageNode<V,K> {
+    private DataStorageNode<V,K> front;
+    private DataStorageNode<V,K> back;
+    private V name;
     private K key;
     private int score;
     private int selection;
     
     public DataStorageNode(){
-        DataStorageNode<T,K> front = null;
-        DataStorageNode<T,K> back = null;
+        DataStorageNode<V,K> front = null;
+        DataStorageNode<V,K> back = null;
         this.name = null;
         this.score = 0; //no player should have a score of zero, use zero as conditional to determine if the node should be initialized.
     }
 
-    public DataStorageNode(T name, int score){
+    public DataStorageNode(V name, int score){
         
-        DataStorageNode<T,K> front = null;
-        DataStorageNode<T,K> back = null;
+        DataStorageNode<V,K> front = null;
+        DataStorageNode<V,K> back = null;
         this.name = name;
         this.score = score;
 
     }
 
-    public DataStorageNode(T name, K key, int score){
+    public DataStorageNode(V name, K key, int score){
         
-        DataStorageNode<T,K> front = null;
-        DataStorageNode<T,K> back = null;
+        DataStorageNode<V,K> front = null;
+        DataStorageNode<V,K> back = null;
         this.name = name;
         this.score = score;
         this.key = key;
@@ -40,7 +40,7 @@ public class DataStorageNode<T,K> {
     void setBack(){
 
     }
-    void setName(T newName){
+    void setName(V newName){
         this.name = newName;
     }
     void setScore(int scoreOfDraft){
@@ -64,6 +64,12 @@ public class DataStorageNode<T,K> {
     }
     int getKey(){//not sure if I will be using floats instead
         return (int)key;
+    }
+    K getKKey(){
+        return (K)name;
+    }
+    V getVKey(){
+        return (V)key;
     }
     int getScoreI(){
         return score/3;

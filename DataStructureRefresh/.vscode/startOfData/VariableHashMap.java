@@ -31,7 +31,7 @@ public class VariableHashMap<K, V> {
         for(int i = 0; i< oldTable.length; i++){
             DataStorageNode<K, V> entry = oldTable[i];
             while(entry != null){
-                put(entry.getKey(), entry.value);
+                put(entry.getVKey(), entry.getKKey());
                 entry = entry.getBack();
             }
         }
@@ -41,7 +41,7 @@ public class VariableHashMap<K, V> {
         return Math.abs(key.hashCode()) % table.length;
     }
 
-    //putting an entry into the table
+    //putting an entry into the table, rewrite this to use DataStorageNode as a parameter
     public void put(K key, V Value){
         int index = hash(key);
         if(table[index] == null){
@@ -81,6 +81,7 @@ public class VariableHashMap<K, V> {
         }
     }
 
+    //removing an entry from the table, rewrite this to use DataStorageNode as a parameter
     public void remove(K key){
         int index = hash(key);
         if(table[index] == null){
