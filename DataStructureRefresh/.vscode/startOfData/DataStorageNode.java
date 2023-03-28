@@ -34,10 +34,10 @@ public class DataStorageNode<V,K> {
     }
 
     //Sets
-    void setFront(){
+    void setFront(DataStorageNode insert){
 
     }
-    void setBack(){
+    void setBack(DataStorageNode insert){
 
     }
     void setName(V newName){
@@ -69,7 +69,7 @@ public class DataStorageNode<V,K> {
         return (K)name;
     }
     V getVKey(){
-        return (V)key;
+        return (V)name;
     }
     int getScoreI(){
         return score/3;

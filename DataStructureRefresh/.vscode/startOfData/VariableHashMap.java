@@ -49,13 +49,14 @@ public class VariableHashMap<K, V> {
             size++;
         }else{
             DataStorageNode<K, V> entry = table[index];
-            while(entry.getBack() != null && !entry.key.equals(key)){
+            while(entry.getBack() != null && !entry.getKKey().equals(key)){
                 entry = entry.getBack();
             }
-            if(entry.key.equals(key)){
-                entry.value = Value;
+            if(entry.getKKey().equals(key)){
+                entry.setName(key); //change this later to search hash return function
             }else{
-                entry.getBack() = new DataStorageNode<K, V>(key, Value,0);
+                DataStorageNode <K,V> temp = new DataStorageNode<K, V>(key, Value,0);
+                entry.setBack(temp);
                 size++;
             }
         }
@@ -70,18 +71,18 @@ public class VariableHashMap<K, V> {
             return null;
         }else{
             DataStorageNode<K, V> entry = table[index];
-            while(entry != null && !entry.key.equals(key)){
+            while(entry != null && !entry.getKKey().equals(key)){
                 entry = entry.getBack();
             }
             if(entry == null){
                 return null;
             }else{
-                return entry.value;
+                return entry.getKKey();
             }
         }
     }
 
-    //removing an entry from the table, rewrite this to use DataStorageNode as a parameter
+    //removing an entry from the table, likely issue with generic comparisons. Check later.
     public void remove(K key){
         int index = hash(key);
         if(table[index] == null){
@@ -89,15 +90,15 @@ public class VariableHashMap<K, V> {
         }else{
             DataStorageNode<K, V> entry = table[index];
             DataStorageNode<K, V> prev = null;
-            while(entry.getBack() != null && !entry.getKey().equals(key)){
+            while(entry.getBack() != null && !entry.getKKey().equals(key)){
                 prev = entry;
                 entry = entry.getBack();
             }
-            if(entry.key.equals(key)){
+            if(entry.getKKey().equals(key)){
                 if(prev == null){
                     table[index] = entry.getBack();
                 }else{
-                    prev.getBack() = entry.getBack();
+                    prev.setBack(entry.getBack());
                 }
                 size--;
             }
