@@ -188,7 +188,7 @@ public class testClass {
 
         DataStorageNode test= new DataStorageNode();
 
-        DataStorageNode<String> [] returnThis = new DataStorageNode[storage.length*storage[0].length];
+        DataStorageNode<String, Integer> [] returnThis = new DataStorageNode[storage.length*storage[0].length];
 
         System.out.println(returnThis.length);
 
